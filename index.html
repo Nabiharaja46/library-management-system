@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LibSphere - Library Management System</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="app-layout">
+
+        <aside class="sidebar">
+            <div class="brand">
+                <div class="brand-icon"><i class="fa-solid fa-book-bookmark"></i></div>
+                <div class="brand-text">
+                    <h2>LibSphere</h2>
+                    <span>Admin Workspace</span>
+                </div>
+            </div>
+
+            <nav class="nav-menu">
+                <a href="#dashboard" class="nav-item active">
+                    <i class="fa-solid fa-chart-pie"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="#books" class="nav-item">
+                    <i class="fa-solid fa-book"></i>
+                    <span>Books Inventory</span>
+                </a>
+                <a href="#issue-return" class="nav-item">
+                    <i class="fa-solid fa-right-left"></i>
+                    <span>Issue & Return</span>
+                </a>
+                <a href="#members" class="nav-item">
+                    <i class="fa-solid fa-users"></i>
+                    <span>Members</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-user">
+                <div class="avatar">NR</div>
+                <div class="user-info">
+                    <p class="name">Nabiha Raja</p>
+                    <p class="role">Library Administrator</p>
+                </div>
+            </div>
+        </aside>
+
+        <main class="main-content">
+
+            <header class="top-header">
+                <div class="header-title">
+                    <h1>Dashboard Overview</h1>
+                    <p>Welcome back! Here is what's happening today.</p>
+                </div>
+                <div class="header-actions">
+                    <button class="btn btn-primary">
+                        <i class="fa-solid fa-plus"></i> Add New Book
+                    </button>
+                </div>
+            </header>
+
+            <section id="dashboard" class="content-section">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon icon-blue"><i class="fa-solid fa-book"></i></div>
+                        <div class="stat-details">
+                            <span class="label">Total Books</span>
+                            <h3 class="value">1,420</h3>
+                            <span class="badge badge-success"><i class="fa-solid fa-arrow-up"></i> 12% this month</span>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon icon-amber"><i class="fa-solid fa-book-reader"></i></div>
+                        <div class="stat-details">
+                            <span class="label">Books Issued</span>
+                            <h3 class="value">184</h3>
+                            <span class="badge badge-neutral">Active Borrowers</span>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon icon-emerald"><i class="fa-solid fa-user-check"></i></div>
+                        <div class="stat-details">
+                            <span class="label">Total Members</span>
+                            <h3 class="value">3</h3>
+                            <span class="badge badge-success"><i class="fa-solid fa-arrow-up"></i> Active Users</span>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon icon-rose"><i class="fa-solid fa-triangle-exclamation"></i></div>
+                        <div class="stat-details">
+                            <span class="label">Overdue Books</span>
+                            <h3 class="value">1</h3>
+                            <span class="badge badge-danger">Action Required</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="books" class="content-section">
+                <div class="grid-2col">
+                    
+                    <div class="card">
+                        <div class="card-header">
+                            <h3><i class="fa-solid fa-circle-plus"></i> Add New Book</h3>
+                        </div>
+                        <form class="form-layout">
+                            <div class="form-group">
+                                <label for="book-title">Book Title</label>
+                                <input type="text" id="book-title" placeholder="e.g. Design Patterns" required>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="book-author">Author</label>
+                                    <input type="text" id="book-author" placeholder="e.g. Erich Gamma" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="book-isbn">ISBN Code</label>
+                                    <input type="text" id="book-isbn" placeholder="978-0201633610" required>
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="book-category">Category</label>
+                                    <select id="book-category">
+                                        <option value="Technology">Technology</option>
+                                        <option value="Fiction">Fiction</option>
+                                        <option value="Science">Science</option>
+                                        <option value="History">History</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="book-copies">Total Copies</label>
+                                    <input type="number" id="book-copies" value="1" min="1" required>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary btn-block">
+                                <i class="fa-solid fa-floppy-disk"></i> Save Book Record
+                            </button>
+                        </form>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header flex-between">
+                            <h3><i class="fa-solid fa-list"></i> Books Inventory</h3>
+                            <div class="search-box">
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                                <input type="text" placeholder="Search books...">
+                            </div>
+                        </div>
+
+                        <div class="table-responsive">
+                            <table class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th>Book Details</th>
+                                        <th>Category</th>
+                                        <th>Copies</th>
+                                        <th>Status</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <div class="table-title">Clean Code</div>
+                                            <div class="table-sub">Robert C. Martin • 978-0132350884</div>
+                                        </td>
+                                        <td><span class="chip">Technology</span></td>
+                                        <td>5 Copies</td>
+                                        <td><span class="status-pill status-available">4 Available</span></td>
+                                        <td>
+                                            <div class="action-buttons">
+                                                <button class="icon-btn btn-edit"><i class="fa-solid fa-pen-to-square"></i></button>
+                                                <button class="icon-btn btn-delete"><i class="fa-solid fa-trash-can"></i></button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="table-title">To Kill a Mockingbird</div>
+                                            <div class="table-sub">Harper Lee • 978-0061120084</div>
+                                        </td>
+                                        <td><span class="chip">Fiction</span></td>
+                                        <td>3 Copies</td>
+                                        <td><span class="status-pill status-available">2 Available</span></td>
+                                        <td>
+                                            <div class="action-buttons">
+                                                <button class="icon-btn btn-edit"><i class="fa-solid fa-pen-to-square"></i></button>
+                                                <button class="icon-btn btn-delete"><i class="fa-solid fa-trash-can"></i></button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <section id="issue-return" class="content-section">
+                <div class="grid-2col">
+                    
+                    <div class="card">
+                        <div class="card-header">
+                            <h3><i class="fa-solid fa-hand-holding-hand"></i> Issue Book</h3>
+                        </div>
+                        <form class="form-layout">
+                            <div class="form-group">
+                                <label for="member-select">Select Member</label>
+                                <select id="member-select">
+                                    <option value="">Choose Member...</option>
+                                    <option value="M-101">Nabiha Raja (M-101)</option>
+                                    <option value="M-102">Shawana (M-102)</option>
+                                    <option value="M-103">Laiba (M-103)</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="book-select">Select Book</label>
+                                <select id="book-select">
+                                    <option value="">Choose Book...</option>
+                                    <option value="B-1">Clean Code (4 Available)</option>
+                                    <option value="B-2">To Kill a Mockingbird (2 Available)</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="due-date">Due Return Date</label>
+                                <input type="date" id="due-date" required>
+                            </div>
+
+                            <button type="submit" class="btn btn-accent btn-block">
+                                <i class="fa-solid fa-check-double"></i> Confirm Issue
+                            </button>
+                        </form>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <h3><i class="fa-solid fa-clock-rotate-left"></i> Issued Records</h3>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th>Member</th>
+                                        <th>Book</th>
+                                        <th>Due Date</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <div class="table-title">Nabiha Raja</div>
+                                            <div class="table-sub">ID: M-101</div>
+                                        </td>
+                                        <td>Clean Code</td>
+                                        <td><span class="date-tag">Oct 15, 2026</span></td>
+                                        <td>
+                                            <button class="btn btn-sm btn-outline-success">Return</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="table-title">Shawana</div>
+                                            <div class="table-sub">ID: M-102</div>
+                                        </td>
+                                        <td>To Kill a Mockingbird</td>
+                                        <td><span class="date-tag">Oct 20, 2026</span></td>
+                                        <td>
+                                            <button class="btn btn-sm btn-outline-success">Return</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <section id="members" class="content-section">
+                <div class="card">
+                    <div class="card-header flex-between">
+                        <h3><i class="fa-solid fa-user-gear"></i> Registered Library Members</h3>
+                        <button class="btn btn-primary"><i class="fa-solid fa-user-plus"></i> Register Member</button>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Member ID</th>
+                                    <th>Full Name</th>
+                                    <th>Email Address</th>
+                                    <th>Phone</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><span class="id-badge">M-101</span></td>
+                                    <td><strong>Nabiha Raja</strong></td>
+                                    <td>nabiha.raja@example.com</td>
+                                    <td>+92 300 1234567</td>
+                                    <td>
+                                        <button class="icon-btn btn-delete"><i class="fa-solid fa-trash-can"></i></button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><span class="id-badge">M-102</span></td>
+                                    <td><strong>Shawana</strong></td>
+                                    <td>shawana@example.com</td>
+                                    <td>+92 301 7654321</td>
+                                    <td>
+                                        <button class="icon-btn btn-delete"><i class="fa-solid fa-trash-can"></i></button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><span class="id-badge">M-103</span></td>
+                                    <td><strong>Laiba</strong></td>
+                                    <td>laiba@example.com</td>
+                                    <td>+92 302 9876543</td>
+                                    <td>
+                                        <button class="icon-btn btn-delete"><i class="fa-solid fa-trash-can"></i></button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
